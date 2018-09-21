@@ -4,7 +4,7 @@ import { connect } from '@tarojs/redux'
 
 import { add, minus } from '../../actions/counter'
 
-import './index.scss'
+import './home.scss'
 
 
 @connect(({ counter }) => ({
@@ -17,14 +17,16 @@ import './index.scss'
     dispatch(minus())
   }
 }))
-class Index extends Component {
+class Home extends Component {
 
     config = {
-    navigationBarTitleText: '首页'
+    navigationBarTitleText: 'home'
   }
-
+  componentWillMount () {
+    console.log(this.$router.params) // 输出 { id: 2, type: 'test' }
+  }
   componentWillReceiveProps (nextProps) {
-    console.log(this.props, nextProps)
+    // console.log(this.props, nextProps)
   }
 
   componentWillUnmount () { }
@@ -35,8 +37,8 @@ class Index extends Component {
   
   GoTo = () => {
     Taro.navigateTo({
-        url: '/pages/home/home'
-      })
+      url:'/pages/index/index'
+    })
   }
   render () {
     return (
@@ -45,10 +47,10 @@ class Index extends Component {
         <Button className='dec_btn' onClick={this.props.dec}>-</Button>
         <Button className='dec_btn' onClick={this.props.asyncAdd}>async</Button>
         <View><Text>{this.props.counter.num}</Text></View>
-        <View onClick={this.GoTo}><Text>Hello, World</Text></View>
+        <View onClick={this.GoTo}><Text>home</Text></View>
       </View>
     )
   }
 }
 
-export default Index
+export default Home

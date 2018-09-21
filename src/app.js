@@ -17,7 +17,8 @@ class App extends Component {
 
   config = {
     pages: [
-      'pages/index/index'
+      'pages/index/index',
+      'pages/home/home'
     ],
     window: {
       backgroundTextStyle: 'light',
@@ -25,6 +26,7 @@ class App extends Component {
       navigationBarTitleText: 'WeChat',
       navigationBarTextStyle: 'black'
     }
+
   }
 
   componentDidMount () {}
